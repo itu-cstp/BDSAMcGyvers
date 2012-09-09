@@ -1,4 +1,4 @@
 BDSAMcGyvers
 ============
 
-Main wiki for bdsa course
+Main repository + wiki for bdsa course E2012 on IT-University of Copenhagen
