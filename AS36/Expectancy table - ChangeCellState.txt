@@ -1,0 +1,23 @@
+﻿// zombie from the start
+input: (null, zombies[]) expected output: null
+
+//surviving with two or three friends
+input (1, 2live no zombies[]) expected output: 1
+input (1, 3live no zombies[]) expected output: 1
+
+// dead with 4-8 friends
+input (1, 4live no zombies[]) expected output: 0
+input (1, 5live no zombies[]) expected output: 0
+input (1, 6live no zombies[]) expected output: 0
+input (1, 7live no zombies[]) expected output: 0
+input (1, 8live no zombies[]) expected output: 0
+
+// dead from the beginning
+input (0, zombies[]) expected output: 0
+
+//raised from the dead
+input (0, 3live[]) expected output: 1
+
+// 50 percent chance for turning "ghouly"
+input (1, zombies[]) expected output from 1000000 rounds = close to 50%
+
