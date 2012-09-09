@@ -1,14 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameTest/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameTest/World.cs">
     <Files>
-      <File FileName="ConsoleGame/World.cs" Line="15" Column="6" />
-      <File FileName="ConsoleGameTest/Main.cs" Line="12" Column="3" />
+      <File FileName="ConsoleGame/World.cs" Line="9" Column="2" />
+      <File FileName="ConsoleGameTest/World.cs" Line="31" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="ConsoleGame" expanded="True" />
           <Node name="ConsoleGameTest" expanded="True" selected="True" />
+          <Node name="GUIGame" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -16,7 +18,13 @@
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True">
-          <Node name="ConsoleGameTest" selected="True" />
+          <Node name="ConsoleGameTest" expanded="True">
+            <Node name="ConsoleGame" expanded="True">
+              <Node name="WorldTest" expanded="True">
+                <Node name="TestChangeCellState" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
