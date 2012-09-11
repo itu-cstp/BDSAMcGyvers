@@ -1,0 +1,6 @@
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\bin\Debug\HelloWorldProgram.exe.config
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\bin\Debug\HelloWorldProgram.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\bin\Debug\HelloWorldProgram.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\obj\Debug\HelloWorldProgram.csprojResolveAssemblyReference.cache
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\obj\Debug\HelloWorldProgram.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\HelloWorldProgram\obj\Debug\HelloWorldProgram.pdb

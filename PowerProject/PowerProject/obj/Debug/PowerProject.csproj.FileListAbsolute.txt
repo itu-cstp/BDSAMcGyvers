@@ -1,0 +1,7 @@
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\bin\Debug\PowerProject.exe.config
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\obj\Debug\PowerProject.csprojResolveAssemblyReference.cache
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\bin\Debug\IsPowerOf.cs
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\bin\Debug\PowerProject.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\bin\Debug\PowerProject.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\obj\Debug\PowerProject.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\PowerProject\PowerProject\obj\Debug\PowerProject.pdb

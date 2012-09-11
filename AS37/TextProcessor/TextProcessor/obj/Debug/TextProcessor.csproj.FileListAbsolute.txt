@@ -1,0 +1,5 @@
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\TextProcessor\TextProcessor\bin\Debug\TextProcessor.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\TextProcessor\TextProcessor\bin\Debug\TextProcessor.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\TextProcessor\TextProcessor\obj\Debug\TextProcessor.csprojResolveAssemblyReference.cache
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\TextProcessor\TextProcessor\obj\Debug\TextProcessor.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\TextProcessor\TextProcessor\obj\Debug\TextProcessor.pdb
