@@ -11,7 +11,7 @@ namespace TextProcessor
 	/// <summary>
 	/// Struct used to represent a "hit" / search string in the text file 
 	/// </summary>
-    struct RegMatch : IComparable<RegMatch>
+    public struct RegMatch : IComparable<RegMatch>
     {
 		/// <summary>
 		/// The position of the hit
