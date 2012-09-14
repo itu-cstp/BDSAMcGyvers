@@ -1,0 +1,7 @@
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.csprojResolveAssemblyReference.cache
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\bin\Debug\TestTextProcessor.dll
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\bin\Debug\TestTextProcessor.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\bin\Debug\TextProcessor.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\bin\Debug\TextProcessor.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.dll
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.pdb

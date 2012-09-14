@@ -30,7 +30,7 @@ namespace TestTextProcessor
         {
             string filename = "onlytext.txt";
 
-            string s = Program.ReadFile(filename);
+            string s = TextFileReader.ReadFile(filename);
 
             RegMatch[] matches = Program.FindAllMatches("man", s);
 
@@ -46,7 +46,7 @@ namespace TestTextProcessor
 
             string filename2 = "textWithoutLinks.txt";
 
-            string s2 = TextFileReader.ReadFile(filename);
+            string s2 = TextFileReader.ReadFile(filename2);
 
             RegMatch[] matches2 = Program.FindAllMatches("", s2);
 
@@ -63,7 +63,7 @@ namespace TestTextProcessor
 
             string filename3 = "textWithoutDates.txt";
 
-            string s3 = TextFileReader.ReadFile(filename);
+            string s3 = TextFileReader.ReadFile(filename3);
 
             RegMatch[] matches3 = Program.FindAllMatches("", s3);
 
@@ -79,7 +79,7 @@ namespace TestTextProcessor
 
             string filename4 = "textWithoutDates.txt";
 
-            string s4 = TextFileReader.ReadFile(filename);
+            string s4 = TextFileReader.ReadFile(filename4);
 
             RegMatch[] matches4 = Program.FindAllMatches("man", s4);
 

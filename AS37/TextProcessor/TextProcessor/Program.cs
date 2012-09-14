@@ -58,7 +58,7 @@ namespace TextProcessor
 	/// <summary>
 	/// The main entry point for our text processing application
 	/// </summary>
-    class Program
+    public class Program
     {
 		/// <summary>
 		/// Read Text input from user and formats it as a correct search string 
