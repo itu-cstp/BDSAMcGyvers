@@ -14,7 +14,7 @@ namespace SchedulingBenchmarking
         static void Main(String[] args) 
         {
             BenchmarkSystem bench = new BenchmarkSystem();
-            bench.Submit(new Job());
+            bench.Submit(new Job(new Owner("me"), 10));
             
         }
 
@@ -33,10 +33,12 @@ namespace SchedulingBenchmarking
 
         }
 
-        public String[] Status() 
+        public void ExecuteAll()
         {
-            return new String[34]; 
+
         }
+
+        public String[] Status;        
 
         private void onSubmittet(EventArgs e)
         {
@@ -81,7 +83,7 @@ namespace SchedulingBenchmarking
 
             internal Job popJob()
             {
-                return new Job();
+                return new Job(new Owner("me"), 10);
             }
 
         }

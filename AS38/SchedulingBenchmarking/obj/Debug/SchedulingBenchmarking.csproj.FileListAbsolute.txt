@@ -3,3 +3,8 @@ C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBe
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.csprojResolveAssemblyReference.cache
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.exe
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.csprojResolveAssemblyReference.cache
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarking\bin\Debug\SchedulingBenchmarking.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarking\bin\Debug\SchedulingBenchmarking.pdb

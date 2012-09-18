@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="BenchmarkSystem.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
