@@ -167,9 +167,17 @@ namespace TextProcessor
 			
 			// Wait for input
 			String line = Console.In.ReadLine();
+            if (line.Equals(""))
+            {
+                Console.Out.WriteLine("Please enter a search string...");
+                Console.ReadKey();
+                return;
+            }
 			
 			// File to match in
-			string filename = "C:/Users/Ellen/Documents/Visual Studio 2012/Projects/BDSA/AS37/textfiles/testFile.txt";
+
+			string filename = "testFile.txt";
+
 			
 			// Read the file and place it in string
 			string s = TextFileReader.ReadFile(filename);

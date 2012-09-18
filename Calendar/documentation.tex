@@ -1,0 +1,230 @@
+\documentclass[10pt]{article}
+\topmargin -1.5cm        % read Lamport p.163
+\oddsidemargin -0.04cm   % read Lamport p.163
+\evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+\textwidth 16.59cm
+\textheight 21.94cm 
+%\pagestyle{empty}       % Uncomment if don't want page numbers
+\parskip 7.2pt           % sets spacing between paragraphs
+\parindent 0pt		  % sets leading space for paragraphs
+\title{Calendar Documentation}
+
+\begin{document}
+
+\tableofcontents
+
+\part{Vision}
+
+\section{Introduction}
+The purpose of this product is to provide a platform for efficient time utilization and project management for an iterative workflow.
+
+\section{Stakeholders}
+\subsection{Clients}
+Jacob E. Bardram
+Dario Pacino 
+
+\subsection{Users}
+Project managers
+Employees throughout the organization
+
+\section{Key High-Level Goals and Problems for the Stakeholders}
+
+\subsection{Problems}
+Modern organizations have a need for employees to schedule meetings with each other, to use time most efficiently
+Missing automatisation results in: organizations suffering from lack of frequent updates and incorrect schedules. Leads to difficulties in planning
+
+\subsection{Goal}
+A calender that encourages better utilization of time, and easier online interaction between workers
+A system which facilities automatisation to achieve more up to date schedules
+
+\section{User-Level Goals}
+To facilitate a better interoperative workflow through all levels of the organization Employee:
+\begin{itemize}
+
+\item Book a meeting with one or more co-workers
+\item Check availability of other employees
+\item Check position of other employees
+\item Receive invitations
+\item Update events Manager:
+\item Overview of employees to utilize time more efficiently
+\item Team-invite employees for meetings
+\item Email event-collaborators
+
+\end{itemize}
+
+\section{Product Overview}
+
+\subsection{Major features}
+
+\begin{itemize}
+
+\item Online distributed calendar
+\item Support for a variety of devices
+\item Customizable
+\item Multiple colour themes
+\item Facilitates team collaboration with emphasis on iterative planning
+\item Instant on always available service
+\item Aggregation of a variety of existing service
+\item Realtime updates, like googledocs
+
+\end{itemize}
+
+\section{Other Requirements and Constraints}
+\textit{See Supplementary Specification and Use cases}
+
+
+\part{Use cases}
+
+\section{User case list}
+
+\subsection{Employee}
+
+\begin{itemize}
+\item Book a meeting with one or more co-workers
+\item Check availability of other employees
+\item Check position of other employees
+\item Receive invitations
+\item Update events 
+\end{itemize}
+
+
+\subsection{Manager}
+\begin{itemize}
+\item Overview of employees to utilize time more efficiently
+\item Team-invite employees for meetings
+\item Email event-collaborators
+\end{itemize}
+
+\section{Use cases Brief Format}
+
+\subsection{Employees}
+
+\subsubsection{Book a meeting with one or more co-workers}
+
+\begin{itemize}
+\item The Employee logs in to his calendar 
+\item He finds the the specific time and date 
+\item He checks whether the person he wants to schedule for a meeting is available at that time 
+\item He books a meeting
+\end{itemize}
+
+\subsection{Manager}
+
+\subsubsection{Overview of employees to utilize time more efficiently}
+
+\begin{itemize}
+\item Manager needs two of his employees for a specialized task 
+\item Manager logs into main view of the calendar system, with a view of employee appointments over a specified timeframe 
+\item He finds two suitable employees who are available in the same timeframe 
+\item He books a the timeslot in both employees calendars
+\end{itemize}
+
+
+\part{Supplementary specification}
+\section{Functionality}
+\begin{itemize}
+\item Features and Capabilities covered in Vision 
+\end{itemize}
+
+
+\section{Security}
+\begin{itemize}
+\item Login/password is required by each user
+\end{itemize}
+
+\section{Usability}
+
+\begin{itemize}
+\item Every user of a given organization should be able to use the product to a satisfying extend with a maximum of two hours of training
+\item User manual
+\end{itemize}
+
+\section{Reliability}
+\begin{itemize}
+\item The product should have an uptime of 99.7%
+\item In case of system failure it should be able to recover all data before the crash
+\end{itemize}
+
+\section{Performance}
+\begin{itemize}
+\item Response times - The product should have a response time at any given moment of no more than 3 seconds, with a mean time of 0.05 seconds
+\item Availability - the product should be available anywhere with a network connection
+\end{itemize}
+
+\section{Supportability}
+
+\subsection{Maintainability}
+
+\begin{itemize}
+
+\item The product will run on a myriad of generic server solutions. The server should continue to work with future upgrades 
+\end{itemize}
+\subsection{Adaptability}
+\subsection{Future} 
+
+\subsection{Internationalization}
+
+\begin{itemize}
+\item The product is built with internationalization in mind, and will only need a minimum of additional configuration to be translated
+\end{itemize}
+
+
+\section{Implementation}
+\begin{itemize}
+\item Needs to work with all major desktop and mobile browsers
+\end{itemize}
+
+\section{Interfaces}
+
+\begin{itemize}
+\item Other location / event services
+\item GPS receiver in smartphones
+\end{itemize}
+
+\section{Operations}
+\begin{itemize}
+\item The system requires an employee/manager to function as a local administrator to handle password resetting, creating user profiles etc.
+\end{itemize}
+
+\section{Packaging}
+There are no packaging concern with this product, as it is transported and sold electronically
+
+\section{Legal}
+Tracking issues need to be looked at from legal perspective
+
+
+\part{Glossary}
+
+\begin{table}[ht]
+\begin{tabular}{ | l | p{5cm} | l | | l | | l |}
+\hline
+
+Item & Definition and Information & Format & Validation Rules & Aliases \\
+\hline
+
+Event & Something that happens at a specific scheduled time: work, meeting, sing-along. Can have several participant. Has: ID, Title, description and a location & Text/date & & \\ \hline
+
+Geographical position & geographical position of the user, taken from mobile phone & gps coordinates && \\ \hline
+
+User & A user of the system, and a creator and participant of events & & & \\ \hline
+
+Invitation & "An invitation to an event. Can have several receivers but only one sender. Fills a timeslot.
+Can be accepted, rejected or unanswered.
+Has a Title and a messageBody, " & Text & & \\ \hline
+
+Response & "A response to an invitation. Can either be, Accepted or rejected.
+Has: message, time" & & & \\ \hline
+
+TimeSlot & The time period associated with an event. Has start time + end time & & & \\ \hline
+
+Calendar & "The main overview of the events. 
+Has: Events" & & & \\ \hline
+
+
+\hline
+
+\end{tabular}
+\end{table}
+
+
+\end{document}
