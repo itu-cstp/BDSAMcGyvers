@@ -1,0 +1,5 @@
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\DelegatesFun\DelegatesFun\bin\Debug\DelegatesFun.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\DelegatesFun\DelegatesFun\bin\Debug\DelegatesFun.pdb
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\DelegatesFun\DelegatesFun\obj\Debug\DelegatesFun.csprojResolveAssemblyReference.cache
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\DelegatesFun\DelegatesFun\obj\Debug\DelegatesFun.exe
+C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\DelegatesFun\DelegatesFun\obj\Debug\DelegatesFun.pdb

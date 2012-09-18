@@ -6,7 +6,7 @@ namespace BDSA12
   /// <summary>
   ///   Utility class for reading text files into a single string.
   /// </summary>
-  static class TextFileReader
+  public static class TextFileReader
   {
     /// <summary>
     ///   Reads a text file and returns its content as a string.
