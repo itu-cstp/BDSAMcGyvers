@@ -169,7 +169,7 @@ namespace TextProcessor
 			String line = Console.In.ReadLine();
 			
 			// File to match in
-			string filename = "/home/csp/projects/ITU/3.semester/BDSA/AS37/textfiles/testFile.txt";
+			string filename = "C:/Users/Ellen/Documents/Visual Studio 2012/Projects/BDSA/AS37/textfiles/testFile.txt";
 			
 			// Read the file and place it in string
 			string s = TextFileReader.ReadFile(filename);

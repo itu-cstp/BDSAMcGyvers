@@ -3,3 +3,5 @@ C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\CollectionPerform
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\CollectionPerformance\CollectionPerformance\bin\Debug\CollectionPerformance.pdb
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\CollectionPerformance\CollectionPerformance\obj\Debug\CollectionPerformance.exe
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\CollectionPerformance\CollectionPerformance\obj\Debug\CollectionPerformance.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\CollectionPerformance\CollectionPerformance\obj\Debug\CollectionPerformance.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\CollectionPerformance\CollectionPerformance\obj\Debug\CollectionPerformance.pdb

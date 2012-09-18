@@ -5,3 +5,10 @@ C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcesso
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\bin\Debug\TextProcessor.pdb
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.dll
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\bin\Debug\TestTextProcessor.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\bin\Debug\TestTextProcessor.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\bin\Debug\TextProcessor.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\bin\Debug\TextProcessor.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.csprojResolveAssemblyReference.cache
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS37\TextProcessor\TestTextProcessor\obj\Debug\TestTextProcessor.pdb
