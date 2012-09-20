@@ -11,11 +11,6 @@ namespace SchedulingBenchmarking
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
         public String[] Status;
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> e6df398efeedacb09999b74e1b411d4049420136
 
         static void Main(String[] args) 
         {
@@ -29,15 +24,9 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-<<<<<<< HEAD
 
-            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3);
-=======
-            String[] input = {"eeng", "mrof", "cstp"};
-            Func<string[], int> Process = (input) => 34; 
+            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
 
-            Job test = new Job();
->>>>>>> e6df398efeedacb09999b74e1b411d4049420136
 
             system.Submit(test);
             system.ExecuteAll();
@@ -65,7 +54,7 @@ namespace SchedulingBenchmarking
         public void ExecuteAll()
         {
 
-            while (!scheduler.Empty) {
+            while (!scheduler.Empty()) {
                 Job job = scheduler.popJob();
                 String result = job.Process(new string[] {"Processing job started at: "+ job.TimeAdded });
                 // event started
@@ -109,7 +98,7 @@ namespace SchedulingBenchmarking
 
             internal void addJob(Job job)
             {
-                int time = job.ExpectedRuntimeMinutes;
+                int time = job.ExpectedRuntime;
 
                 if (time < 30) 
                     ShortQueue.Enqueue(job);
@@ -133,7 +122,7 @@ namespace SchedulingBenchmarking
 
             internal Job removeJob(Job job)
             {
-                int time = job.ExpectedRuntimeMinutes;
+                int time = job.ExpectedRuntime;
 
                 if (time < 30)
                     return ShortQueue.Dequeue();
