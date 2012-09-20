@@ -12,7 +12,10 @@ namespace SchedulingBenchmarking
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
         public String[] Status;
+<<<<<<< HEAD
        
+=======
+>>>>>>> 7fb6ee0fa840c0c7c7f67eee6423f81ad15cb7de
 
         static void Main(String[] args) 
         {
@@ -26,7 +29,9 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            Job test = new Job(new Owner("me"), 5);
+
+            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
+
 
             system.Submit(test);
             system.ExecuteAll();
@@ -42,26 +47,30 @@ namespace SchedulingBenchmarking
         public void Submit(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Submitted });
+            scheduler.addJob(job);
         }
 
         public void Cancel(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Cancelled });
+            scheduler.removeJob(job);
         }
 
         public void ExecuteAll()
         {
-            // when started
-            OnChanged(new StateChangedEventArgs() { State = State.Running });
 
-            // if failed
-            OnChanged(new StateChangedEventArgs() { State = State.Failed });
+            while (!scheduler.Empty()) {
+                Job job = scheduler.popJob();
+                String result = job.Process(new string[] {"Processing job started at: "+ job.TimeAdded });
+                // event started
+                OnChanged(new StateChangedEventArgs() { State = State.Running });
+                if (result == null) OnChanged(new StateChangedEventArgs() { State = State.Failed }); // if failed
+                else OnChanged(new StateChangedEventArgs() { State = State.Terminated }); // when finished
+            }    
 
-            // when finished
-            OnChanged(new StateChangedEventArgs() { State = State.Terminated });
         }
 
-        /*** Events ***/
+        
 
         private void OnChanged(StateChangedEventArgs e)
         {
@@ -96,7 +105,7 @@ namespace SchedulingBenchmarking
 
             internal void addJob(Job job)
             {
-                int time = job.ExpectedRuntimeMinutes;
+                int time = job.ExpectedRuntime;
 
                 if (time < 30) 
                     ShortQueue.Enqueue(job);
@@ -132,6 +141,7 @@ namespace SchedulingBenchmarking
             /// <param name="job"> Job to remove</param>
             internal void removeJob(Job job)
             {
+<<<<<<< HEAD
                 removedJobs.Add(job);
             }
             
@@ -148,7 +158,7 @@ namespace SchedulingBenchmarking
                 Job newestJob = getNewestJob();
 
                 // Criteria for which queue to pop from
-                int time = newestJob.ExpectedRuntimeMinutes;
+                int time = newestJob.ExpectedRuntime;
 
                 // Object that we will return
                 Job popped = null;
@@ -173,6 +183,7 @@ namespace SchedulingBenchmarking
                     return popJob();
                 }
 
+
                 return popped; // A job that might be null 
             }
 
@@ -183,7 +194,6 @@ namespace SchedulingBenchmarking
             internal bool Empty(){
                 return (ShortQueue.Count < 1 && MediumQueue.Count < 1 && LongQueue.Count < 1);
             }
-
         }
     }
 }
