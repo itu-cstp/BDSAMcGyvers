@@ -9,7 +9,6 @@ namespace SchedulingBenchmarking
     class BenchmarkSystem
     {
         Scheduler scheduler = new Scheduler();
-        public event EventHandler JobSubmittet;
         public event EventHandler<StateChangedEventArgs> StateChanged;
         public String[] Status;  
 
@@ -33,7 +32,7 @@ namespace SchedulingBenchmarking
 
         public BenchmarkSystem()
         {
-            //this.JobSubmittet += new EventHandler(giveMessage);
+            
         }
 
         /*** Methods ***/
@@ -70,13 +69,7 @@ namespace SchedulingBenchmarking
             }
         }     
 
-        private void onSubmittet(EventArgs e)
-        {
-
-            if (JobSubmittet != null) JobSubmittet(this, e);
-                
-        }
-
+      
         public void giveMessage(object sender, EventArgs e)
         {
             Console.WriteLine("message received");
