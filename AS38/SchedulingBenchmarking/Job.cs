@@ -68,9 +68,6 @@ namespace SchedulingBenchmarking
         { 
             return "Job added: " +TimeAdded+" owner: "+ Owner;
         }
-
-    }
-
     
     }    
 }
