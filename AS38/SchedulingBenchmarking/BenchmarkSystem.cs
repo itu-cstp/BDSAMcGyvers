@@ -32,7 +32,7 @@ namespace SchedulingBenchmarking
 
         public BenchmarkSystem()
         {
-            //this.JobSubmittet += new EventHandler(giveMessage);
+            
         }
 
         /*** Methods ***/

@@ -7,7 +7,15 @@ namespace SchedulingBenchmarking
 {
     class Job
     {
-        public int CPUsNeeded;
+        public int CPUsNeeded
+        {
+            get;
+            set 
+            { 
+                if (value >= 1 && value < 7) 
+                    CPUsNeeded = value; 
+            }
+        }
 
         public int ExpectedRuntimeMinutes;
 
@@ -24,9 +32,10 @@ namespace SchedulingBenchmarking
             TimeAdded = DateTime.Now;
         }
 
-        public void Process()
+        public void Process(string[] args)
         {
             // run for x nr of minutes
+            //(args) => Console.WriteLine("{0} Job will run for {1} minutes", args, ExpectedRuntimeMinutes);
         }
     }
 }
