@@ -22,7 +22,6 @@ namespace SchedulingBenchmarking
 
         public string Process(string[] args)
         {
-            
             return del(args);
             
         }

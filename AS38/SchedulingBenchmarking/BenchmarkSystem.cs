@@ -10,7 +10,7 @@ namespace SchedulingBenchmarking
     {
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
-        public String[] Status;  
+        public String[] Status;
 
         static void Main(String[] args) 
         {
@@ -24,7 +24,8 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            Job test = new Job();
+
+            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3);
 
             system.Submit(test);
             system.ExecuteAll();
@@ -49,21 +50,17 @@ namespace SchedulingBenchmarking
 
         public void ExecuteAll()
         {
-            Job j = new Job(new Owner("dsad"), 3);
-            
-            Func<string[], int> fun = j.Process;
-
-            // when started
-            OnChanged(new StateChangedEventArgs() { State = State.Running });
-
-            // if failed
-            OnChanged(new StateChangedEventArgs() { State = State.Failed });
-
-            // when finished
-            OnChanged(new StateChangedEventArgs() { State = State.Terminated });
+            while (!scheduler.Empty) {
+                Job job = scheduler.popJob();
+                String result = job.Process(new string[] { "Processing job started at: "+ job.Time });
+                // event started
+                OnChanged(new StateChangedEventArgs() { State = State.Running });
+                if (result == null) OnChanged(new StateChangedEventArgs() { State = State.Failed }); // if failed
+                else OnChanged(new StateChangedEventArgs() { State = State.Terminated }); // when finished
+            }    
         }
 
-        /*** Events ***/
+        
 
         private void OnChanged(StateChangedEventArgs e)
         {
