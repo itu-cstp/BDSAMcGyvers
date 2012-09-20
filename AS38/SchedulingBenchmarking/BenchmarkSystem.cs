@@ -9,7 +9,6 @@ namespace SchedulingBenchmarking
     class BenchmarkSystem
     {
         Scheduler scheduler = new Scheduler();
-        public event EventHandler JobSubmittet;
         public event EventHandler<StateChangedEventArgs> StateChanged;
         public String[] Status;  
 
@@ -70,13 +69,6 @@ namespace SchedulingBenchmarking
             }
         }     
 
-        private void onSubmittet(EventArgs e)
-        {
-
-            if (JobSubmittet != null) JobSubmittet(this, e);
-                
-        }
-
         public void giveMessage(object sender, EventArgs e)
         {
             Console.WriteLine("message received");
@@ -112,14 +104,37 @@ namespace SchedulingBenchmarking
                     LongQueue.Enqueue(job);
             }
 
-            internal void removeJob(Job job)
+            private Job getNewestJob()
             {
 
+                var timedJobs = new Job[] {ShortQueue.OrderBy(j => j.TimeAdded).Last(),
+                                           MediumQueue.OrderBy(j => j.TimeAdded).Last(), 
+                                           LongQueue.OrderBy(j => j.TimeAdded).Last() };
+
+                return timedJobs.OrderBy(j => j.TimeAdded).Last();
+            }
+
+            internal Job removeJob(Job job)
+            {
+                int time = job.ExpectedRuntimeMinutes;
+
+                if (time < 30)
+                    return ShortQueue.Dequeue();
+
+                if (time <= 30 && time < 120)
+                    return MediumQueue.Dequeue();
+
+                if (time <= 120)
+                    return LongQueue.Dequeue();
+
+                return null;
             }
 
             internal Job popJob()
             {
-                return new Job(new Owner("me"), 10);
+                Job newestJob = getNewestJob();
+
+                return removeJob(newestJob);
             }
 
         }
