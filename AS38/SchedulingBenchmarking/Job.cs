@@ -19,7 +19,9 @@ namespace SchedulingBenchmarking
 
         public int ExpectedRuntimeMinutes;
 
-        public State State;
+        public DateTime TimeAdded;
+
+        //public State State;
 
         public Owner Owner;
 
@@ -27,6 +29,7 @@ namespace SchedulingBenchmarking
         {
             Owner = o;
             ExpectedRuntimeMinutes = time;
+            TimeAdded = DateTime.Now;
         }
 
         public void Process(string[] args)

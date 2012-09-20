@@ -57,8 +57,7 @@ namespace SchedulingBenchmarking
         public void ExecuteAll()
         {
             // loop while there are jobs in the 3 queues
-            while(){
-
+            while(true){
                 // when started
                 Job job = scheduler.popJob();
                 job.Process(new string[] {"hello", "chuck", "norris", "...."});
@@ -82,7 +81,6 @@ namespace SchedulingBenchmarking
             }
         }     
 
-      
         public void giveMessage(object sender, EventArgs e)
         {
             Console.WriteLine("message received");
@@ -118,14 +116,38 @@ namespace SchedulingBenchmarking
                     LongQueue.Enqueue(job);
             }
 
-            internal void removeJob(Job job)
+            private Job getNewestJob()
             {
 
+                var timedJobs = new Job[] {ShortQueue.OrderBy(j => j.TimeAdded).Last(),
+                                           MediumQueue.OrderBy(j => j.TimeAdded).Last(), 
+                                           LongQueue.OrderBy(j => j.TimeAdded).Last() };
+
+                return timedJobs.OrderBy(j => j.TimeAdded).Last();
+            }
+
+            internal Job removeJob(Job job)
+            {
+                int time = job.ExpectedRuntimeMinutes;
+
+                if (time < 30)
+                    return ShortQueue.Dequeue();
+
+                if (time <= 30 && time < 120)
+                    return MediumQueue.Dequeue();
+
+                if (time <= 120)
+                    return LongQueue.Dequeue();
+
+                return null;
             }
 
             internal Job popJob()
             {
-                
+
+                Job newestJob = getNewestJob();
+
+                return removeJob(newestJob);
             }
         }
     }
