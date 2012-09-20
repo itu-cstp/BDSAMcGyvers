@@ -10,9 +10,7 @@ namespace SchedulingBenchmarking
     {
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
-        public String[] Status;
-        
-        
+        public String[] Status;       
 
         static void Main(String[] args) 
         {
@@ -26,8 +24,8 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            String[] input = {"eeng", "mrof", "cstp"};
-            Func<string[], int> Process = (input) => 34; 
+            //String[] input = {"eeng", "mrof", "cstp"};
+            //Func<string[], int> Process = (input) => 34; 
 
             Job test = new Job();
 
@@ -60,8 +58,7 @@ namespace SchedulingBenchmarking
             while(true){
                 // when started
                 Job job = scheduler.popJob();
-                job.Process(new string[] {"hello", "chuck", "norris", "...."});
-                OnChanged(new StateChangedEventArgs() { State = State.Running });
+                   OnChanged(new StateChangedEventArgs() { State = State.Running });
             
                 // if failed
                 OnChanged(new StateChangedEventArgs() { State = State.Failed });
@@ -144,9 +141,7 @@ namespace SchedulingBenchmarking
 
             internal Job popJob()
             {
-
                 Job newestJob = getNewestJob();
-
                 return removeJob(newestJob);
             }
         }

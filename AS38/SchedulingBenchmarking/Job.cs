@@ -21,7 +21,7 @@ namespace SchedulingBenchmarking
 
         public DateTime TimeAdded;
 
-        //public State State;
+        public State State;
 
         public Owner Owner;
 
