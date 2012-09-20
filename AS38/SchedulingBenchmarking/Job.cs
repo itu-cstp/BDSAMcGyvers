@@ -5,12 +5,22 @@ using System.Text;
 
 namespace SchedulingBenchmarking
 {
+    /// <summary>
+    /// This class represents a job to be executed.
+    /// </summary>
     class Job
     {
+
+        // a delegate for the processing method
+
         private Func<string[], string> del;
         public int ExpectedRuntime;
         public DateTime TimeAdded;
         private int cpusneeded;
+        
+        public State State;
+
+        public Owner Owner;
 
         public int CPUsNeeded
         {
@@ -24,10 +34,15 @@ namespace SchedulingBenchmarking
                     cpusneeded = value; 
             }
         }
- 
-        public State State;
 
-        public Owner Owner;
+        
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="del">The function that are executed when job.process is called</param>
+        /// <param name="owner"> the owner of the job</param>
+        /// <param name="cpus">number of cpus required</param>
+        /// <param name="expectedRuntime">the expected runtime in minutes</param>
 
         public Job(Func<string[], string> del, Owner owner, int cpus, int expectedRuntime)
         {
@@ -37,10 +52,22 @@ namespace SchedulingBenchmarking
             TimeAdded = new DateTime();
             this.ExpectedRuntime = expectedRuntime;
         }
-
+        /// <summary>
+        /// This method calls the supplied delegate method. 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public string Process(string[] args)
         {
             return del(args);
         }
+
+
+        // representation to be used with status array
+        public override string toString() 
+        { 
+            return "Job added: " +TimeAdded+" owner: "+ Owner;
+        }
+    
     }    
 }
