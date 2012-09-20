@@ -1,1 +1,8 @@
 O:\projects\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarkingTest.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarkingTest.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarking.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarking.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.csprojResolveAssemblyReference.cache
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.pdb

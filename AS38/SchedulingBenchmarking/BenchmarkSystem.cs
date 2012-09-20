@@ -8,20 +8,20 @@ namespace SchedulingBenchmarking
 {
     class BenchmarkSystem
     {
-
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
+        
 
         public String[] Status;
 
         static void Main(String[] args) 
         {
             BenchmarkSystem system = new BenchmarkSystem();
-            Logger.Subscribe(system);
 
+            system.StateChanged += Logger.OnStateChanged;
+            
             Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
-
-
+            
             system.Submit(test);
             system.ExecuteAll();
         }
@@ -89,6 +89,7 @@ namespace SchedulingBenchmarking
                 ShortQueue = new Queue<Job>();
                 MediumQueue = new Queue<Job>();
                 LongQueue = new Queue<Job>();
+                removedJobs = new HashSet<Job>();
             }
 
             internal void addJob(Job job)

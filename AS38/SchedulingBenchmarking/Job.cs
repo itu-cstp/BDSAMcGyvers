@@ -10,13 +10,18 @@ namespace SchedulingBenchmarking
         private Func<string[], string> del;
         public int ExpectedRuntime;
         public DateTime TimeAdded;
+        private int cpusneeded;
+
         public int CPUsNeeded
         {
-            get;
+            get 
+            { 
+                return cpusneeded; 
+            }
             set 
             { 
                 if (value >= 1 && value < 7) 
-                    CPUsNeeded = value; 
+                    cpusneeded = value; 
             }
         }
  

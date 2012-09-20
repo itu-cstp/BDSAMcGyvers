@@ -13,9 +13,9 @@ namespace SchedulingBenchmarking
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private static void OnStateChanged(object sender, StateChangedEventArgs e)
+        internal static void OnStateChanged(object sender, StateChangedEventArgs e)
         {
-            Console.WriteLine("Sender: {0} job state {1}", sender, e.State);
+            Console.WriteLine("Job state {0}", e.State);
         }
     }
 }
