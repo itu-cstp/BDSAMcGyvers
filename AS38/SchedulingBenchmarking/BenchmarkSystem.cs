@@ -10,35 +10,65 @@ namespace SchedulingBenchmarking
     {
         Scheduler scheduler = new Scheduler();
         public event EventHandler JobSubmittet;
+        public event EventHandler<StateChangedEventArgs> StateChanged;
+        public String[] Status;  
 
         static void Main(String[] args) 
         {
-            BenchmarkSystem bench = new BenchmarkSystem();
-            bench.Submit(new Job(new Owner("me"), 10));
-            
+            /*
+            BenchmarkSystem system = new BenchmarkSystem();
+            system.Submit(new Job(new Owner("me"), 10));   
+         */
+
+            //////////////////////////////////////////////
+
+            BenchmarkSystem system = new BenchmarkSystem();
+            Logger.Subscribe(system);
+
+            Job test = new Job(new Owner("me"), 5);
+
+            system.Submit(test);
+            system.ExecuteAll();
         }
 
         public BenchmarkSystem()
         {
-            this.JobSubmittet += new EventHandler(giveMessage);
+            //this.JobSubmittet += new EventHandler(giveMessage);
         }
 
+        /*** Methods ***/
+        
         public void Submit(Job job)
         {
-            onSubmittet(EventArgs.Empty);
+            OnChanged(new StateChangedEventArgs() { State = State.Submitted });
         }
 
         public void Cancel(Job job)
         {
-
+            OnChanged(new StateChangedEventArgs() { State = State.Cancelled });
         }
 
         public void ExecuteAll()
         {
+            // when started
+            OnChanged(new StateChangedEventArgs() { State = State.Running });
 
+            // if failed
+            OnChanged(new StateChangedEventArgs() { State = State.Failed });
+
+            // when finished
+            OnChanged(new StateChangedEventArgs() { State = State.Terminated });
         }
 
-        public String[] Status;        
+        /*** Events ***/
+
+        private void OnChanged(StateChangedEventArgs e)
+        {
+            if (StateChanged != null)
+            {
+                StateChanged(this, e);
+            }
+        }     
 
         private void onSubmittet(EventArgs e)
         {
@@ -49,11 +79,8 @@ namespace SchedulingBenchmarking
 
         public void giveMessage(object sender, EventArgs e)
         {
-            Console.Out.WriteLine("message received");
+            Console.WriteLine("message received");
         }
-
-       
-
 
         /// <summary>
         /// Internal class that handles scheduling of tasks. 
@@ -73,7 +100,16 @@ namespace SchedulingBenchmarking
 
             internal void addJob(Job job)
             {
+                int time = job.ExpectedRuntimeMinutes;
 
+                if (time < 30) 
+                    ShortQueue.Enqueue(job);
+
+                if (time <= 30 && time < 120) 
+                    MediumQueue.Enqueue(job);
+                
+                if (time <= 120) 
+                    LongQueue.Enqueue(job);
             }
 
             internal void removeJob(Job job)

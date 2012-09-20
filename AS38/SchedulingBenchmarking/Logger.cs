@@ -7,25 +7,19 @@ namespace SchedulingBenchmarking
 {
     class Logger
     {
-        public void OnJobSubmitter()
+        public static void Subscribe(BenchmarkSystem system)
         {
-            Console.WriteLine("job submitted");
+            system.StateChanged += OnStateChanged;
         }
-        public void OnJobCancelled()
+
+        public static void UnSubscribe(BenchmarkSystem system)
         {
-            Console.WriteLine("job cancelled");
+            system.StateChanged -= OnStateChanged;
         }
-        public void OnJobRunning()
+
+        private static void OnStateChanged(object sender, StateChangedEventArgs e)
         {
-            Console.WriteLine("job running");
-        }
-        public void OnJobTerminated()
-        {
-            Console.WriteLine("job terminated");
-        }
-        public void OnJobFailed()
-        {
-            Console.WriteLine("job failed");
-        }
+            Console.WriteLine("Sender: {0} job state {1}", sender, e.State);
+        }    
     }
 }
