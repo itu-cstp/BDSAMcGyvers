@@ -9,10 +9,11 @@ namespace SchedulingBenchmarking
     class BenchmarkSystem
     {
         Scheduler scheduler = new Scheduler();
-        public event EventHandler<StateChangedEventArgs> StateChanged;
-        
+        public event EventHandler<StateChangedEventArgs> StateChanged;        
 
-        public String[] Status;
+        public HashSet<Job>[] Status;
+        HashSet<Job> StatusRunning;
+        HashSet<Job> StatusQueuing;
 
         static void Main(String[] args) 
         {
@@ -27,8 +28,12 @@ namespace SchedulingBenchmarking
         }
 
         public BenchmarkSystem()
-        {  
- 
+        {
+            Status = new HashSet<Job>[2];
+            StatusRunning = new HashSet<Job>();
+            StatusQueuing = new HashSet<Job>();
+            Status[0] = StatusRunning;
+            Status[1] = StatusQueuing;
         }
 
         /*** Methods ***/
@@ -36,25 +41,44 @@ namespace SchedulingBenchmarking
         public void Submit(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Submitted });
+            job.State = State.Submitted;
             scheduler.addJob(job);
+            StatusQueuing.Add(job);
         }
 
         public void Cancel(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Cancelled });
+            job.State = State.Cancelled;
             scheduler.removeJob(job);
+            StatusQueuing.Remove(job);
         }
 
         public void ExecuteAll()
         {
-
             while (!scheduler.Empty()) {
-                Job job = scheduler.popJob();
-                String result = job.Process(new string[] {"Processing job started at: "+ job.TimeAdded });
                 // event started
                 OnChanged(new StateChangedEventArgs() { State = State.Running });
-                if (result == null) OnChanged(new StateChangedEventArgs() { State = State.Failed }); // if failed
-                else OnChanged(new StateChangedEventArgs() { State = State.Terminated }); // when finished
+                Job job = scheduler.popJob();
+                job.State = State.Running;
+                StatusRunning.Add(job);
+
+                String result = job.Process(new string[] { "Processing job started at: " + job.TimeAdded });
+
+                // if failed
+                if (result == null)
+                {
+                    OnChanged(new StateChangedEventArgs() { State = State.Failed });
+                    job.State = State.Failed;
+                    StatusRunning.Remove(job);
+                }
+                // when finished
+                else
+                {
+                    OnChanged(new StateChangedEventArgs() { State = State.Terminated });
+                    job.State = State.Terminated;
+                    StatusRunning.Remove(job);
+                }
             }    
         }
 
