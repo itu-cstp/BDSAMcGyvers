@@ -10,7 +10,9 @@ namespace SchedulingBenchmarking
     {
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
-        public String[] Status;  
+        public String[] Status;
+        
+        
 
         static void Main(String[] args) 
         {
@@ -24,7 +26,10 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            Job test = new Job(new Owner("me"), 5);
+            String[] input = {"eeng", "mrof", "cstp"};
+            Func<string[], int> Process = (input) => 34; 
+
+            Job test = new Job();
 
             system.Submit(test);
             system.ExecuteAll();
@@ -40,23 +45,31 @@ namespace SchedulingBenchmarking
         public void Submit(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Submitted });
+            scheduler.addJob(job);
         }
 
         public void Cancel(Job job)
         {
             OnChanged(new StateChangedEventArgs() { State = State.Cancelled });
+            scheduler.removeJob(job);
         }
 
         public void ExecuteAll()
         {
-            // when started
-            OnChanged(new StateChangedEventArgs() { State = State.Running });
+            // loop while there are jobs in the 3 queues
+            while(){
 
-            // if failed
-            OnChanged(new StateChangedEventArgs() { State = State.Failed });
+                // when started
+                Job job = scheduler.popJob();
+                job.Process(new string[] {"hello", "chuck", "norris", "...."});
+                OnChanged(new StateChangedEventArgs() { State = State.Running });
+            
+                // if failed
+                OnChanged(new StateChangedEventArgs() { State = State.Failed });
 
-            // when finished
-            OnChanged(new StateChangedEventArgs() { State = State.Terminated });
+                // when finished
+                OnChanged(new StateChangedEventArgs() { State = State.Terminated });
+            }
         }
 
         /*** Events ***/
@@ -112,9 +125,8 @@ namespace SchedulingBenchmarking
 
             internal Job popJob()
             {
-                return new Job(new Owner("me"), 10);
+                
             }
-
         }
     }
 }

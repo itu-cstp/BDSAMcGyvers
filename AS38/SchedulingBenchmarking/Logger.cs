@@ -20,6 +20,12 @@ namespace SchedulingBenchmarking
         private static void OnStateChanged(object sender, StateChangedEventArgs e)
         {
             Console.WriteLine("Sender: {0} job state {1}", sender, e.State);
-        }    
+        }
+
+        public static void Update(object sender, StateChangedEventArgs e)
+        {
+            Console.WriteLine("Sender: {0} job state {1}", sender, e.State);
+        }
+
     }
 }
