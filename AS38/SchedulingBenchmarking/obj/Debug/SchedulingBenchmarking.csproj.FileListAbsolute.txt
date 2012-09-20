@@ -12,3 +12,4 @@ C:\Users\cstp\projects\BDSAMcGyvers\AS38\SchedulingBenchmarking\obj\Debug\Schedu
 C:\Users\cstp\projects\BDSAMcGyvers\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.pdb
 O:\projects\BDSAMcGyvers\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.exe
 O:\projects\BDSAMcGyvers\AS38\SchedulingBenchmarking\obj\Debug\SchedulingBenchmarking.pdb
+O:\projects\BDSAMcGyvers\AS38\SchedulingBenchmarking\obj\Debug\ResolveAssemblyReference.cache
