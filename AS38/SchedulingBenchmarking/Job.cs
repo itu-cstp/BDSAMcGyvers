@@ -7,6 +7,9 @@ namespace SchedulingBenchmarking
 {
     class Job
     {
+        private Func<string[], string> del;
+        public int ExpectedRuntime;
+        public DateTime TimeAdded;
         public int CPUsNeeded
         {
             get;
@@ -16,26 +19,23 @@ namespace SchedulingBenchmarking
                     CPUsNeeded = value; 
             }
         }
-
-        public int ExpectedRuntimeMinutes;
-
-        public DateTime TimeAdded;
-
+ 
         public State State;
 
         public Owner Owner;
 
-        public Job(Owner o, int time)
+        public Job(Func<string[], string> del, Owner owner, int cpus, int expectedRuntime)
         {
-            Owner = o;
-            ExpectedRuntimeMinutes = time;
-            TimeAdded = DateTime.Now;
+            this.del = del;
+            this.Owner = owner;
+            this.CPUsNeeded = cpus;
+            TimeAdded = new DateTime();
+            this.ExpectedRuntime = expectedRuntime;
         }
 
-        public void Process(string[] args)
+        public string Process(string[] args)
         {
-            // run for x nr of minutes
-            //(args) => Console.WriteLine("{0} Job will run for {1} minutes", args, ExpectedRuntimeMinutes);
+            return del(args);
         }
-    }
+    }    
 }

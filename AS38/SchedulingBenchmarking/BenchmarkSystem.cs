@@ -10,24 +10,16 @@ namespace SchedulingBenchmarking
     {
         Scheduler scheduler = new Scheduler();
         public event EventHandler<StateChangedEventArgs> StateChanged;
+
         public String[] Status;       
 
         static void Main(String[] args) 
         {
-            /*
-            BenchmarkSystem system = new BenchmarkSystem();
-            system.Submit(new Job(new Owner("me"), 10));   
-         */
-
-            //////////////////////////////////////////////
-
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            //String[] input = {"eeng", "mrof", "cstp"};
-            //Func<string[], int> Process = (input) => 34; 
+            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
 
-            Job test = new Job();
 
             system.Submit(test);
             system.ExecuteAll();
@@ -54,21 +46,18 @@ namespace SchedulingBenchmarking
 
         public void ExecuteAll()
         {
-            // loop while there are jobs in the 3 queues
-            while(true){
-                // when started
-                Job job = scheduler.popJob();
-                   OnChanged(new StateChangedEventArgs() { State = State.Running });
-            
-                // if failed
-                OnChanged(new StateChangedEventArgs() { State = State.Failed });
 
-                // when finished
-                OnChanged(new StateChangedEventArgs() { State = State.Terminated });
-            }
+            while (!scheduler.Empty()) {
+                Job job = scheduler.popJob();
+                String result = job.Process(new string[] {"Processing job started at: "+ job.TimeAdded });
+                // event started
+                OnChanged(new StateChangedEventArgs() { State = State.Running });
+                if (result == null) OnChanged(new StateChangedEventArgs() { State = State.Failed }); // if failed
+                else OnChanged(new StateChangedEventArgs() { State = State.Terminated }); // when finished
+            }    
         }
 
-        /*** Events ***/
+        
 
         private void OnChanged(StateChangedEventArgs e)
         {
@@ -101,7 +90,7 @@ namespace SchedulingBenchmarking
 
             internal void addJob(Job job)
             {
-                int time = job.ExpectedRuntimeMinutes;
+                int time = job.ExpectedRuntime;
 
                 if (time < 30) 
                     ShortQueue.Enqueue(job);
@@ -125,7 +114,7 @@ namespace SchedulingBenchmarking
 
             internal Job removeJob(Job job)
             {
-                int time = job.ExpectedRuntimeMinutes;
+                int time = job.ExpectedRuntime;
 
                 if (time < 30)
                     return ShortQueue.Dequeue();
