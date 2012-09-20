@@ -24,7 +24,7 @@ namespace SchedulingBenchmarking
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
 
-            Job test = new Job(new Owner("me"), 5);
+            Job test = new Job();
 
             system.Submit(test);
             system.ExecuteAll();
@@ -49,6 +49,10 @@ namespace SchedulingBenchmarking
 
         public void ExecuteAll()
         {
+            Job j = new Job(new Owner("dsad"), 3);
+            
+            Func<string[], int> fun = j.Process;
+
             // when started
             OnChanged(new StateChangedEventArgs() { State = State.Running });
 

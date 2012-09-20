@@ -7,23 +7,26 @@ namespace SchedulingBenchmarking
 {
     class Job
     {
-        public int CPUsNeeded;
-
-        public int ExpectedRuntimeMinutes;
-
-        //public State State;
-
+        private int CPUsNeeded;
+        private Func<string[], string> del;
+        public DateTime Time;
         public Owner Owner;
 
-        public Job(Owner o, int time)
+        public Job(Func<string[], string> del, Owner owner, int cpus)
         {
-            Owner = o;
-            ExpectedRuntimeMinutes = time;
+            this.del = del;
+            this.Owner = owner;
+            this.CPUsNeeded = cpus;
+            Time = new DateTime();
         }
 
-        public void Process()
+        public string Process(string[] args)
         {
-            // run for x nr of minutes
+            
+            return del(args);
+            
         }
     }
+
+    
 }
