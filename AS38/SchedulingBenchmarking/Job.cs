@@ -7,24 +7,37 @@ namespace SchedulingBenchmarking
 {
     class Job
     {
-        private int CPUsNeeded;
-        private Func<string[], string> del;
-        public DateTime Time;
-        public Owner Owner;
 
-        public Job(Func<string[], string> del, Owner owner, int cpus)
+        private Func<string[], string> del;
+        public int ExpectedRuntime;
+        public DateTime TimeAdded;
+        public Owner Owner;
+        public int CPUsNeeded
+        {
+            get;
+            set 
+            { 
+                if (value >= 1 && value < 7) 
+                    CPUsNeeded = value; 
+            }
+        }
+        
+
+        public Job(Func<string[], string> del, Owner owner, int cpus, int expectedRuntime)
         {
             this.del = del;
             this.Owner = owner;
             this.CPUsNeeded = cpus;
-            Time = new DateTime();
+            TimeAdded = new DateTime();
+            this.ExpectedRuntime = expectedRuntime;
+
         }
 
         public string Process(string[] args)
         {
             return del(args);
-            
         }
+
     }
 
     
