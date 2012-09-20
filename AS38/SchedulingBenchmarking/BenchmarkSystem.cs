@@ -27,7 +27,8 @@ namespace SchedulingBenchmarking
         {
             
             BenchmarkSystem system = new BenchmarkSystem();
-            //Logger.Subscribe(system);
+
+            // get the logger to subscribe to BenchmarkSystem
             system.StateChanged += Logger.OnStateChanged;
             
             Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
@@ -89,9 +90,7 @@ namespace SchedulingBenchmarking
                     StatusRunning.Remove(job);
                 }
             }    
-        }
-
-        
+        }       
 
         private void OnChanged(StateChangedEventArgs e)
         {
