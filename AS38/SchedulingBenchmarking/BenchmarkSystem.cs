@@ -5,26 +5,26 @@ using System.Text;
 
 
 namespace SchedulingBenchmarking
-{
+{   
+    /// <summary>
+    /// This class processes created jobs, fires events at job-start,end,fail and houses the job scheduler.
+    /// Currently it doesn't really perform any benchmarks.
+    /// 
+    /// </summary>
     class BenchmarkSystem
-    {
+    {   
+        //The shedular that holds incomming jobs. 
         Scheduler scheduler = new Scheduler();
+        // eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;
+        
         public String[] Status;
 
         static void Main(String[] args) 
         {
-            /*
-            BenchmarkSystem system = new BenchmarkSystem();
-            system.Submit(new Job(new Owner("me"), 10));   
-         */
-
-            //////////////////////////////////////////////
-
+            
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
-
-
             Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
 
 
