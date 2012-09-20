@@ -10,20 +10,31 @@ namespace SchedulingBenchmarking
     /// </summary>
     class Job
     {
+
         // a delegate for the processing method
+
         private Func<string[], string> del;
         public int ExpectedRuntime;
         public DateTime TimeAdded;
+        private int cpusneeded;
+        
+        public State State;
+
         public Owner Owner;
+
         public int CPUsNeeded
         {
-            get;
+            get 
+            { 
+                return cpusneeded; 
+            }
             set 
             { 
                 if (value >= 1 && value < 7) 
-                    CPUsNeeded = value; 
+                    cpusneeded = value; 
             }
         }
+
         
         /// <summary>
         /// Constructor
@@ -32,6 +43,7 @@ namespace SchedulingBenchmarking
         /// <param name="owner"> the owner of the job</param>
         /// <param name="cpus">number of cpus required</param>
         /// <param name="expectedRuntime">the expected runtime in minutes</param>
+
         public Job(Func<string[], string> del, Owner owner, int cpus, int expectedRuntime)
         {
             this.del = del;
@@ -39,7 +51,6 @@ namespace SchedulingBenchmarking
             this.CPUsNeeded = cpus;
             TimeAdded = new DateTime();
             this.ExpectedRuntime = expectedRuntime;
-
         }
         /// <summary>
         /// This method calls the supplied delegate method. 
@@ -52,12 +63,14 @@ namespace SchedulingBenchmarking
         }
 
 
+        // representation to be used with status array
         public override string toString() 
         { 
-            return "Job added: " +TimeAdded+" Owner 
+            return "Job added: " +TimeAdded+" owner: "+ Owner;
         }
 
     }
 
     
+    }    
 }

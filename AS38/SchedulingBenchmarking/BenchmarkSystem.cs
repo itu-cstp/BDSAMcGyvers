@@ -14,7 +14,6 @@ namespace SchedulingBenchmarking
     class BenchmarkSystem
     {   
         //The shedular that holds incomming jobs. 
-
         Scheduler scheduler = new Scheduler();
         // eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;
@@ -26,9 +25,10 @@ namespace SchedulingBenchmarking
             
             BenchmarkSystem system = new BenchmarkSystem();
             Logger.Subscribe(system);
+            system.StateChanged += Logger.OnStateChanged;
+            
             Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
-
-
+            
             system.Submit(test);
             system.ExecuteAll();
         }
@@ -63,7 +63,6 @@ namespace SchedulingBenchmarking
                 if (result == null) OnChanged(new StateChangedEventArgs() { State = State.Failed }); // if failed
                 else OnChanged(new StateChangedEventArgs() { State = State.Terminated }); // when finished
             }    
-
         }
 
         
@@ -97,6 +96,7 @@ namespace SchedulingBenchmarking
                 ShortQueue = new Queue<Job>();
                 MediumQueue = new Queue<Job>();
                 LongQueue = new Queue<Job>();
+                removedJobs = new HashSet<Job>();
             }
 
             internal void addJob(Job job)
@@ -149,7 +149,7 @@ namespace SchedulingBenchmarking
             /// <returns> The popped job or null if there's no job to return</returns>
             internal Job popJob()
             {
-                
+
                 Job newestJob = getNewestJob();
 
                 // Criteria for which queue to pop from
@@ -177,11 +177,9 @@ namespace SchedulingBenchmarking
                     removedJobs.Remove(newestJob);
                     return popJob();
                 }
-
-
-                return popped; // A job that might be null 
+                return popped;
             }
-
+            
             /// <summary>
             /// Simple method to check whether the three queues are all empty
             /// </summary>
