@@ -50,16 +50,14 @@ namespace SchedulingBenchmarking
         
         public void Submit(Job job)
         {
-            OnChanged(new StateChangedEventArgs() { State = State.Submitted });
-            job.State = State.Submitted;
+            changeState(job, State.Submitted);
             scheduler.addJob(job);
             StatusQueuing.Add(job);
         }
 
         public void Cancel(Job job)
         {
-            OnChanged(new StateChangedEventArgs() { State = State.Cancelled });
-            job.State = State.Cancelled;
+            changeState(job, State.Cancelled);
             scheduler.removeJob(job);
             StatusQueuing.Remove(job);
         }
@@ -67,10 +65,11 @@ namespace SchedulingBenchmarking
         public void ExecuteAll()
         {
             while (!scheduler.Empty()) {
-                // event started
-                OnChanged(new StateChangedEventArgs() { State = State.Running });
+             
+                // start job
                 Job job = scheduler.popJob();
-                job.State = State.Running;
+                changeState(job, State.Running);
+                StatusQueuing.Remove(job);
                 StatusRunning.Add(job);
 
                 String result = job.Process(new string[] { "Processing job started at: " + job.TimeAdded });
@@ -78,19 +77,23 @@ namespace SchedulingBenchmarking
                 // if failed
                 if (result == null)
                 {
-                    OnChanged(new StateChangedEventArgs() { State = State.Failed });
-                    job.State = State.Failed;
+                    changeState(job, State.Failed);
                     StatusRunning.Remove(job);
                 }
                 // when finished
                 else
                 {
-                    OnChanged(new StateChangedEventArgs() { State = State.Terminated });
-                    job.State = State.Terminated;
+                    changeState(job, State.Terminated);
                     StatusRunning.Remove(job);
                 }
             }    
-        }       
+        }
+
+        private void changeState(Job job, State state)
+        {
+            job.State = state;
+            OnChanged(new StateChangedEventArgs() { State = state });
+        }
 
         private void OnChanged(StateChangedEventArgs e)
         {
