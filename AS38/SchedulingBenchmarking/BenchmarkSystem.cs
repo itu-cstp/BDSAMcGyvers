@@ -13,6 +13,7 @@ namespace SchedulingBenchmarking
     /// </summary>
     class BenchmarkSystem
     {   
+
         //The sheduler that holds incoming jobs. 
         Scheduler scheduler = new Scheduler();
 
@@ -94,10 +95,11 @@ namespace SchedulingBenchmarking
 
         private void updateStatus(Job job)
         {
-            if (job.State == State.Submitted)   Status.Add(job);
-            if (job.State == State.Cancelled)   Status.Remove(job);  
-            if (job.State == State.Failed)      Status.Remove(job);
-            if (job.State == State.Terminated)  Status.Remove(job);
+            State state = job.State;
+            if (state == State.Submitted) Status.Add(job);
+            if (state == State.Cancelled) Status.Remove(job);
+            if (state == State.Failed) Status.Remove(job);
+            if (state == State.Terminated) Status.Remove(job);
             // if state changes from submitted to running, the object 
             // will change state, but the HashSet won't need updating.
         }
