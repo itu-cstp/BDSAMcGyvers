@@ -13,15 +13,14 @@ namespace SchedulingBenchmarking
     /// </summary>
     class BenchmarkSystem
     {   
-        //The shedular that holds incomming jobs. 
+        //The sheduler that holds incoming jobs. 
         Scheduler scheduler = new Scheduler();
 
-        // eventhandler that fires event on stateChange
+        // Eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;        
 
-        public HashSet<Job>[] Status;
-        HashSet<Job> StatusRunning;
-        HashSet<Job> StatusQueuing;
+        // HashSet that contains a list of all submitted and running jobs, but not cancelled, failed, or terminated jobs
+        public HashSet<Job> Status;
 
         static void Main(String[] args) 
         {
@@ -39,11 +38,7 @@ namespace SchedulingBenchmarking
 
         public BenchmarkSystem()
         {
-            Status = new HashSet<Job>[2];
-            StatusRunning = new HashSet<Job>();
-            StatusQueuing = new HashSet<Job>();
-            Status[0] = StatusRunning;
-            Status[1] = StatusQueuing;
+            Status = new HashSet<Job>();
         }
 
         /*** Methods ***/
@@ -52,39 +47,35 @@ namespace SchedulingBenchmarking
         {
             changeState(job, State.Submitted);
             scheduler.addJob(job);
-            StatusQueuing.Add(job);
         }
 
         public void Cancel(Job job)
         {
             changeState(job, State.Cancelled);
             scheduler.removeJob(job);
-            StatusQueuing.Remove(job);
         }
 
         public void ExecuteAll()
         {
             while (!scheduler.Empty()) {
              
-                // start job
+                // get job from scheduler
                 Job job = scheduler.popJob();
-                changeState(job, State.Running);
-                StatusQueuing.Remove(job);
-                StatusRunning.Add(job);
 
+                // start job
+                changeState(job, State.Running);
                 String result = job.Process(new string[] { "Processing job started at: " + job.TimeAdded });
 
                 // if failed
                 if (result == null)
                 {
                     changeState(job, State.Failed);
-                    StatusRunning.Remove(job);
                 }
+
                 // when finished
                 else
                 {
                     changeState(job, State.Terminated);
-                    StatusRunning.Remove(job);
                 }
             }    
         }
@@ -92,20 +83,23 @@ namespace SchedulingBenchmarking
         private void changeState(Job job, State state)
         {
             job.State = state;
-            OnChanged(new StateChangedEventArgs() { State = state });
+            fireEvent(new StateChangedEventArgs() { State = state });
+            updateStatus(job);
         }
 
-        private void OnChanged(StateChangedEventArgs e)
+        private void fireEvent(StateChangedEventArgs e)
         {
-            if (StateChanged != null)
-            {
-                StateChanged(this, e);
-            }
-        }     
+            if (StateChanged != null) StateChanged(this, e);
+        }
 
-        public void giveMessage(object sender, EventArgs e)
+        private void updateStatus(Job job)
         {
-            Console.WriteLine("message received");
+            if (job.State == State.Submitted)   Status.Add(job);
+            if (job.State == State.Cancelled)   Status.Remove(job);  
+            if (job.State == State.Failed)      Status.Remove(job);
+            if (job.State == State.Terminated)  Status.Remove(job);
+            // if state changes from submitted to running, the object 
+            // will change state, but the HashSet won't need updating.
         }
 
         /// <summary>
