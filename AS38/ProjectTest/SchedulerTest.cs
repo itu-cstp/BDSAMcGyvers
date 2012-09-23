@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SchedulingBenchmarking;
 
-namespace ProjectTest
+namespace SchedulingBenchmarkingTest
 {
     [TestClass]
     public class SchedulerTest
