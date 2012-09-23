@@ -8,7 +8,7 @@ namespace SchedulingBenchmarking
     /// <summary>
     /// This class represents a job to be executed.
     /// </summary>
-    class Job
+    public class Job
     {
 
         // a delegate for the processing method
@@ -49,7 +49,6 @@ namespace SchedulingBenchmarking
             this.del = del;
             this.Owner = owner;
             this.CPUsNeeded = cpus;
-            TimeAdded = new DateTime();
             this.ExpectedRuntime = expectedRuntime;
         }
         /// <summary>

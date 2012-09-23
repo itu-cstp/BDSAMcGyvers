@@ -27,8 +27,9 @@ namespace SchedulingBenchmarking
             removedJobs = new HashSet<Job>();
         }
 
-        internal void addJob(Job job)
-        {
+        public void addJob(Job job)
+        {   
+            job.TimeAdded = new DateTime();
             int time = job.ExpectedRuntime;
 
             if (time < 30)
@@ -44,6 +45,7 @@ namespace SchedulingBenchmarking
         /// <summary>
         /// Method to get the newest job between the three queues. 
         /// It does so by simoply querying for their respective newest job
+        /// NOTE: henter den ikke "OldestJob" altså det job, der blev added først???? I så fald er det en misvisende titel.
         /// </summary>
         /// <todo> Could be a one-liner ?</todo>
         /// <returns> The newest job </returns>
@@ -63,7 +65,7 @@ namespace SchedulingBenchmarking
         /// Simply mark it as removed and check for it when popping
         /// </summary>
         /// <param name="job"> Job to remove</param>
-        internal void removeJob(Job job)
+        public void removeJob(Job job)
         {
             removedJobs.Add(job);
         }
@@ -75,7 +77,7 @@ namespace SchedulingBenchmarking
         /// 
         /// </summary>
         /// <returns> The popped job or null if there's no job to return</returns>
-        internal Job popJob()
+        public Job popJob()
         {
 
             Job newestJob = getNewestJob();
@@ -92,10 +94,10 @@ namespace SchedulingBenchmarking
             if (time < 30)
                 popped = ShortQueue.Dequeue();
 
-            if (time <= 30 && time < 120)
+            else if (time <= 30 && time < 120)
                 popped = MediumQueue.Dequeue();
 
-            if (time <= 120)
+            else if (time <= 120)
                 popped = LongQueue.Dequeue();
 
             // Check if the popped job is actually a removed one. 
@@ -112,9 +114,9 @@ namespace SchedulingBenchmarking
         /// Simple method to check whether the three queues are all empty
         /// </summary>
         /// <returns> Boolean if all queues are empty</returns>
-        internal bool Empty()
+        public bool Empty()
         {
-            return (ShortQueue.Count < 1 && MediumQueue.Count < 1 && LongQueue.Count < 1);
+            return ((ShortQueue.Count == 0) && (MediumQueue.Count == 0) && (LongQueue.Count == 0));
         }
 
         public static Scheduler getInstance() 
