@@ -15,7 +15,7 @@ namespace SchedulingBenchmarking
     {   
 
         //The sheduler that holds incoming jobs. 
-        internal Scheduler scheduler = new Scheduler();
+        internal Scheduler scheduler = Scheduler.getInstance();
 
         // Eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;        

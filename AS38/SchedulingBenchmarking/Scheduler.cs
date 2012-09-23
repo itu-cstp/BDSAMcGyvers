@@ -19,7 +19,7 @@ namespace SchedulingBenchmarking
         //singleton field
         private static Scheduler instance = new Scheduler();
 
-        internal Scheduler()
+        private Scheduler()
         {
             ShortQueue = new Queue<Job>();
             MediumQueue = new Queue<Job>();
