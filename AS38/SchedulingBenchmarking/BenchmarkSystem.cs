@@ -20,7 +20,8 @@ namespace SchedulingBenchmarking
         // Eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;        
 
-        // HashSet that contains a list of all submitted and running jobs, but not cancelled, failed, or terminated jobs
+        // HashSet that contains a list of all submitted and running jobs, 
+        // but not cancelled, failed, or terminated jobs
         public HashSet<Job> Status;
 
         static void Main(String[] args) 
@@ -97,13 +98,11 @@ namespace SchedulingBenchmarking
         {
             State state = job.State;
             if (state == State.Submitted) Status.Add(job);
-            if (state == State.Cancelled) Status.Remove(job);
-            if (state == State.Failed) Status.Remove(job);
-            if (state == State.Terminated) Status.Remove(job);
+            else if (state == State.Cancelled) Status.Remove(job);
+            else if (state == State.Failed) Status.Remove(job);
+            else if (state == State.Terminated) Status.Remove(job);
             // if state changes from submitted to running, the object 
             // will change state, but the HashSet won't need updating.
-        }
-
-     
+        }     
     }
 }
