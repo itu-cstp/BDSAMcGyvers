@@ -66,7 +66,7 @@ namespace SchedulingBenchmarking
         // representation to be used with status array
         public override string ToString() 
         { 
-            return "Job added: " +TimeAdded+" owner: "+ Owner;
+            return "Job added: " +TimeAdded+" owner: "+ Owner.Name;
         }
     
     }    

@@ -5,3 +5,10 @@ C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\ProjectTest\
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\ProjectTest\obj\Debug\ProjectTest.pdb
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\ProjectTest\bin\Debug\SchedulingBenchmarking.exe
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\ProjectTest\bin\Debug\SchedulingBenchmarking.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\bin\Debug\ProjectTest.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\bin\Debug\ProjectTest.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\bin\Debug\SchedulingBenchmarking.exe
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\bin\Debug\SchedulingBenchmarking.pdb
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\obj\Debug\ProjectTest.csprojResolveAssemblyReference.cache
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\obj\Debug\ProjectTest.dll
+C:\Users\Ellen\Documents\Visual Studio 2012\Projects\BDSA\AS38\ProjectTest\obj\Debug\ProjectTest.pdb
