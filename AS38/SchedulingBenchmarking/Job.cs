@@ -12,8 +12,12 @@ namespace SchedulingBenchmarking
     {
 
         // a delegate for the processing method
-
+        #if DEBUG
+        public Func<string[], string> del;
+        #else
         private Func<string[], string> del;
+        #endif
+
         public int ExpectedRuntime;
         public DateTime TimeAdded;
         private int cpusneeded;
