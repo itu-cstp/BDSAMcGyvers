@@ -11,11 +11,11 @@ namespace SchedulingBenchmarking
     /// Currently it doesn't really perform any benchmarks.
     /// 
     /// </summary>
-    class BenchmarkSystem
+    public class BenchmarkSystem
     {   
 
         //The sheduler that holds incoming jobs. 
-        private Scheduler scheduler = new Scheduler();
+        internal Scheduler scheduler = new Scheduler();
 
         // Eventhandler that fires event on stateChange
         public event EventHandler<StateChangedEventArgs> StateChanged;        
@@ -36,6 +36,9 @@ namespace SchedulingBenchmarking
             
             system.Submit(test);
             system.ExecuteAll();
+            
+            Job job = new Job((string[] arg) => { return arg.Length.ToString(); }, new Owner("tester"), 3, 35);
+            Console.WriteLine(job);
         }
 
         public BenchmarkSystem()
@@ -82,19 +85,19 @@ namespace SchedulingBenchmarking
             }    
         }
 
-        private void changeState(Job job, State state)
+        public void changeState(Job job, State state)
         {
             job.State = state;
             fireEvent(new StateChangedEventArgs() { State = state });
             updateStatus(job);
         }
 
-        private void fireEvent(StateChangedEventArgs e)
+        public void fireEvent(StateChangedEventArgs e)
         {
             if (StateChanged != null) StateChanged(this, e);
         }
 
-        private void updateStatus(Job job)
+        public void updateStatus(Job job)
         {
             State state = job.State;
             if (state == State.Submitted) Status.Add(job);

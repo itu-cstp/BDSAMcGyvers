@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SchedulingBenchmarking
 {
-    class Owner
+    public class Owner
     {
         public String Name;
 

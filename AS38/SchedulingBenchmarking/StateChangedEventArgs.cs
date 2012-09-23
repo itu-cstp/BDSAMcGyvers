@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SchedulingBenchmarking
 {
-    class StateChangedEventArgs : EventArgs
+    public class StateChangedEventArgs : EventArgs
     {
         public State State
         {

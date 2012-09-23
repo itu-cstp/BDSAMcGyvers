@@ -8,7 +8,7 @@ namespace SchedulingBenchmarking
     /// <summary>
     /// This class represents a job to be executed.
     /// </summary>
-    class Job
+    public class Job
     {
 
         // a delegate for the processing method
@@ -52,6 +52,7 @@ namespace SchedulingBenchmarking
             TimeAdded = new DateTime();
             this.ExpectedRuntime = expectedRuntime;
         }
+
         /// <summary>
         /// This method calls the supplied delegate method. 
         /// </summary>

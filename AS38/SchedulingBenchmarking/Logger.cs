@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SchedulingBenchmarking
 {
-    class Logger
+    public class Logger
     {
         /// <summary>
         /// Method invoked by any state change in BenchMarkSystem. Publishes a running commentary 
@@ -13,7 +13,7 @@ namespace SchedulingBenchmarking
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        internal static void OnStateChanged(object sender, StateChangedEventArgs e)
+        public static void OnStateChanged(object sender, StateChangedEventArgs e)
         {
             Console.WriteLine("Job state {0}", e.State);
         }
