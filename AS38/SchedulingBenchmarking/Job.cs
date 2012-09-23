@@ -19,7 +19,7 @@ namespace SchedulingBenchmarking
         #endif
 
         public int ExpectedRuntime;
-        public DateTime TimeAdded;
+        public IComparable<DateTime> TimeAdded;
         private int cpusneeded;
         
         public State State;

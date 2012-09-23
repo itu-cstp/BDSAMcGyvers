@@ -12,6 +12,7 @@ namespace SchedulingBenchmarkingTest
         internal Job job2;
         internal Job job3;
 
+
         [TestInitialize]
         public void Initialize()
         {
@@ -63,36 +64,46 @@ namespace SchedulingBenchmarkingTest
         [TestMethod]
         public void PopJob()
         {
+            Assert.IsTrue(scheduler.Empty());
+            // Adding our three premade jobs
             scheduler.addJob(job1);
             scheduler.addJob(job2);
             scheduler.addJob(job3);
-            scheduler.addJob(job1);
-            scheduler.addJob(job2);
-            scheduler.addJob(job3);
-            scheduler.addJob(job1);
-            scheduler.addJob(job2);
-            scheduler.addJob(job3);
-            scheduler.addJob(job1);
-            scheduler.addJob(job2);
-            scheduler.addJob(job3);
-            scheduler.addJob(job1);
-            scheduler.addJob(job2);
-            scheduler.addJob(job3);
+            // popping them and verify that they appear in the same order.
             Assert.AreEqual(scheduler.popJob().Owner.Name, job1.Owner.Name);
             Assert.AreEqual(scheduler.popJob().Owner.Name, job2.Owner.Name);
             Assert.AreEqual(scheduler.popJob().Owner.Name, job3.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job1.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job2.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job3.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job1.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job2.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job3.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job1.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job2.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job3.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job1.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job2.Owner.Name);
-            Assert.AreEqual(scheduler.popJob().Owner.Name, job3.Owner.Name);
+            //create more jobs, add them and verify that they appear in same order
+            Job job4 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner4"), 2, 3);
+            Job job5 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner5"), 2, 45);
+            Job job6 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner6"), 2, 200);
+            Job job7 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner7"), 2, 45);
+            Job job8 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner8"), 2, 45);
+            Job job9 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner9"), 2, 200);
+            Job job10 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner10"), 2, 3);
+            Job job11 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner11"), 2, 45);
+            Job job12 = new Job((string[] args) => { foreach (string s in args) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner12"), 2, 200);
+        
+
+            scheduler.addJob(job4);
+            scheduler.addJob(job5);
+            scheduler.addJob(job6);
+            scheduler.addJob(job7);
+            scheduler.addJob(job8);
+            scheduler.addJob(job9);
+            scheduler.addJob(job10);
+            scheduler.addJob(job11);
+            scheduler.addJob(job12);
+           
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job4.Owner.Name);
+            Assert.AreEqual(job5.Owner.Name, scheduler.popJob().Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job6.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job7.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job8.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job9.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job10.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job11.Owner.Name);
+            Assert.AreEqual(scheduler.popJob().Owner.Name, job12.Owner.Name);
             Assert.IsTrue(scheduler.Empty());
         }
     }
