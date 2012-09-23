@@ -13,3 +13,10 @@ C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBe
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.csprojResolveAssemblyReference.cache
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.dll
 C:\Users\Morten\Documents\Visual Studio 2012\Projects\BDSA2012\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.pdb
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarkingTest.dll
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarkingTest.pdb
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarking.exe
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\bin\Debug\SchedulingBenchmarking.pdb
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.csprojResolveAssemblyReference.cache
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.dll
+C:\Users\csp\projects\ITU\BDSAMcGyvers\AS38\SchedulingBenchmarkingTest\obj\Debug\SchedulingBenchmarkingTest.pdb
