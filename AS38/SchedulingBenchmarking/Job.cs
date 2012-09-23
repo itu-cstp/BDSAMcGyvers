@@ -49,7 +49,6 @@ namespace SchedulingBenchmarking
             this.del = del;
             this.Owner = owner;
             this.CPUsNeeded = cpus;
-            TimeAdded = new DateTime();
             this.ExpectedRuntime = expectedRuntime;
         }
 

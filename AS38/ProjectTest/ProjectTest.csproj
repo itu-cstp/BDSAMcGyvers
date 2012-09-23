@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>8a57e14b-36ef-4e68-827d-a82293619ce8</ProjectGuid>
+    <ProjectGuid>{888F157F-6AE4-49F3-88FE-9A674DAB4856}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectTest</RootNamespace>
@@ -53,8 +53,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SchedulerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BenchmarkSystemTest.cs" />
+    <Compile Include="JobTest.cs" />
+    <Compile Include="LoggerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchedulingBenchmarking\SchedulingBenchmarking.csproj">
+      <Project>{8e6c1073-9464-4b0a-afe2-58885d96ee1e}</Project>
+      <Name>SchedulingBenchmarking</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
