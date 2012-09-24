@@ -21,6 +21,7 @@ namespace SchedulingBenchmarking
             
             BS.Submit(job);
             Assert.AreEqual(1, BS.Status.Count);
+            Assert.IsTrue(BS.Status.Contains(job));
             //Assert.AreEqual(false, BS.scheduler.Empty());
         }
 
@@ -35,11 +36,13 @@ namespace SchedulingBenchmarking
             
             BS.Submit(job);
             Assert.AreEqual(1, BS.Status.Count);
-            //Assert.AreEqual(false, BS.scheduler.Empty());
+            Assert.IsTrue(BS.Status.Contains(job));
+            //Assert.IsFalse(BS.scheduler.Empty());
             
             BS.Cancel(job);
             Assert.AreEqual(0, BS.Status.Count);
-            //Assert.AreEqual(true, BS.scheduler.Empty());
+            Assert.IsFalse(BS.Status.Contains(job));
+            //Assert.IsTrue(BS.scheduler.Empty());
         }
 
         [TestMethod]
