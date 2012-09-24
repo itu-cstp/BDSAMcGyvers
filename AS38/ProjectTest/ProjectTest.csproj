@@ -6,7 +6,7 @@
     <ProjectGuid>{888F157F-6AE4-49F3-88FE-9A674DAB4856}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectTest</RootNamespace>
+    <RootNamespace>SchedulingBenchmarkingTest</RootNamespace>
     <AssemblyName>ProjectTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

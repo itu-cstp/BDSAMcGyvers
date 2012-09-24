@@ -19,7 +19,7 @@ namespace SchedulingBenchmarking
         //singleton field
         private static Scheduler instance = new Scheduler();
 
-        internal Scheduler()
+        private Scheduler()
         {
             ShortQueue = new Queue<Job>();
             MediumQueue = new Queue<Job>();
@@ -35,10 +35,10 @@ namespace SchedulingBenchmarking
             if (time < 30)
                 ShortQueue.Enqueue(job);
 
-            if (time <= 30 && time < 120)
+            if (time >= 30 && time < 120)
                 MediumQueue.Enqueue(job);
 
-            if (time <= 120)
+            if (time >= 120)
                 LongQueue.Enqueue(job);
         }
 
@@ -51,13 +51,17 @@ namespace SchedulingBenchmarking
         /// <returns> The newest job </returns>
         private Job getNewestJob()
         {
-            /// Create an array of the three times
-            var timedJobs = new Job[] {ShortQueue.OrderBy(j => j.TimeAdded).Last(),
-                                           MediumQueue.OrderBy(j => j.TimeAdded).Last(), 
-                                           LongQueue.OrderBy(j => j.TimeAdded).Last() };
+            /// Create a list of the three times
+            List<Job> timedJob = new List<Job>();
+            if (ShortQueue.Count > 0) 
+                timedJob.Add(ShortQueue.ElementAt(0));
+            if (MediumQueue.Count > 0)
+                timedJob.Add(MediumQueue.ElementAt(0));
+            if (LongQueue.Count > 0)
+                timedJob.Add(LongQueue.ElementAt(0));
 
             /// Return the most recent of the previously found three values
-            return timedJobs.OrderBy(j => j.TimeAdded).Last();
+            return timedJob.OrderBy(j => j.TimeAdded).First();
         }
 
         /// <summary>
@@ -94,10 +98,10 @@ namespace SchedulingBenchmarking
             if (time < 30)
                 popped = ShortQueue.Dequeue();
 
-            else if (time <= 30 && time < 120)
+            else if (time >= 30 && time < 120)
                 popped = MediumQueue.Dequeue();
 
-            else if (time <= 120)
+            else if (time >= 120)
                 popped = LongQueue.Dequeue();
 
             // Check if the popped job is actually a removed one. 

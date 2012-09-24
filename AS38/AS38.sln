@@ -6,18 +6,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulingBenchmarkingTest", "SchedulingBenchmarkingTest\SchedulingBenchmarkingTest.csproj", "{1707BF6E-AA07-4571-A1CF-14C9591C2A6A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{901D73F9-2932-413A-A61C-5D744B390F5B}"
-	ProjectSection(SolutionItems) = preProject
-		AS38.vsmdi = AS38.vsmdi
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTest", "ProjectTest\ProjectTest.csproj", "{888F157F-6AE4-49F3-88FE-9A674DAB4856}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = AS38.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -27,10 +17,6 @@ Global
 		{1707BF6E-AA07-4571-A1CF-14C9591C2A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1707BF6E-AA07-4571-A1CF-14C9591C2A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1707BF6E-AA07-4571-A1CF-14C9591C2A6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{888F157F-6AE4-49F3-88FE-9A674DAB4856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{888F157F-6AE4-49F3-88FE-9A674DAB4856}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{888F157F-6AE4-49F3-88FE-9A674DAB4856}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{888F157F-6AE4-49F3-88FE-9A674DAB4856}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E6C1073-9464-4B0A-AFE2-58885D96EE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E6C1073-9464-4B0A-AFE2-58885D96EE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E6C1073-9464-4B0A-AFE2-58885D96EE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
