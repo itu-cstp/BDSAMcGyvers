@@ -35,16 +35,31 @@ namespace SchedulingBenchmarking
             // get the logger to subscribe to BenchmarkSystem
             system.StateChanged += Logger.OnStateChanged;
             
-            Job test = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("dsad"), 3,3);
             Job job1 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner1"), 2, 45);
             Job job2 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner2"), 2, 3);
             Job job3 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner3"), 2, 200);
-        
-            system.Submit(test);
+            Job job4 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner4"), 2, 3);
+            Job job5 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner5"), 2, 45);
+            Job job6 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner6"), 2, 200);
+            Job job7 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner7"), 2, 45);
+            Job job8 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner8"), 2, 45);
+            Job job9 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner9"), 2, 200);
+            Job job10 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner10"), 2, 3);
+            Job job11 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner11"), 2, 45);
+            Job job12 = new Job((string[] arg) => { foreach (string s in arg) { Console.Out.WriteLine(s); } return ""; }, new Owner("owner12"), 2, 200);
             system.Submit(job1);
             system.Submit(job2);
             system.Submit(job3);
-            
+            system.Submit(job4);
+            system.Submit(job5);
+            system.Submit(job6);
+            system.Submit(job7);
+            system.Submit(job8);
+            system.Submit(job9);
+            system.Submit(job10);
+            system.Submit(job11);
+            system.Submit(job12);
+
             system.ExecuteAll();
             
             Job job = new Job((string[] arg) => { return arg.Length.ToString(); }, new Owner("tester"), 3, 35);
@@ -79,7 +94,7 @@ namespace SchedulingBenchmarking
 
                 // start job
                 changeState(job, State.Running);
-                String result = job.Process(new string[] { "Processing job started at: " + job.TimeAdded });
+                String result = job.Process(new string[] { "Processing job started at: " + job.TimeAdded + " owner: " + job.Owner.Name  });
 
                 // if failed
                 if (result == null)

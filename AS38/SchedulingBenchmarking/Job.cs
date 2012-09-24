@@ -18,10 +18,11 @@ namespace SchedulingBenchmarking
         private Func<string[], string> del;
         #endif
 
-        public int ExpectedRuntime;
-        public IComparable<DateTime> TimeAdded;
-        private int cpusneeded;
         
+        public long TimeAdded;
+
+        private int cpusneeded;
+        public int ExpectedRuntime;
         public State State;
 
         public Owner Owner;

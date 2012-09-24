@@ -86,13 +86,21 @@ namespace SchedulingBenchmarkingTest
         
 
             scheduler.addJob(job4);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job5);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job6);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job7);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job8);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job9);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job10);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job11);
+            System.Threading.Thread.Sleep(1000);
             scheduler.addJob(job12);
            
             Assert.AreEqual(scheduler.popJob().Owner.Name, job4.Owner.Name);

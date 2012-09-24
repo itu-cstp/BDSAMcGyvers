@@ -29,7 +29,10 @@ namespace SchedulingBenchmarking
 
         public void addJob(Job job)
         {   
-            job.TimeAdded = new DateTime();
+
+            // FIX to be able to compare timestamps.
+            System.Threading.Thread.Sleep(1);
+            job.TimeAdded = DateTime.Now.Ticks;
             int time = job.ExpectedRuntime;
 
             if (time < 30)
@@ -61,7 +64,7 @@ namespace SchedulingBenchmarking
                 timedJob.Add(LongQueue.ElementAt(0));
 
             /// Return the most recent of the previously found three values
-            return timedJob.OrderBy(j => j.TimeAdded).First();
+            return timedJob.OrderBy(job => job.TimeAdded).ElementAt(0);
         }
 
         /// <summary>
@@ -86,22 +89,19 @@ namespace SchedulingBenchmarking
 
             Job newestJob = getNewestJob();
 
-            // Criteria for which queue to pop from
-            int time = newestJob.ExpectedRuntime;
-
             // Object that we will return
             Job popped = null;
 
             /*
              * Look at the time! And determine which queue is suitable
              */
-            if (time < 30)
+            if (newestJob.ExpectedRuntime < 30)
                 popped = ShortQueue.Dequeue();
 
-            else if (time >= 30 && time < 120)
+            else if (newestJob.ExpectedRuntime >= 30 && newestJob.ExpectedRuntime < 120)
                 popped = MediumQueue.Dequeue();
 
-            else if (time >= 120)
+            else if (newestJob.ExpectedRuntime >= 120)
                 popped = LongQueue.Dequeue();
 
             // Check if the popped job is actually a removed one. 
