@@ -18,11 +18,13 @@ namespace SchedulingBenchmarking
 
             Assert.AreEqual(0, BS.Status.Count);
             Assert.IsTrue(BS.scheduler.Empty());
-            
+
             BS.Submit(job);
             Assert.AreEqual(1, BS.Status.Count);
             Assert.IsTrue(BS.Status.Contains(job));
             Assert.IsFalse(BS.scheduler.Empty());
+
+            BS.scheduler.popJob();
         }
 
         [TestMethod]
@@ -32,17 +34,39 @@ namespace SchedulingBenchmarking
             Job job = new Job((string[] arg) => { return arg.Length.ToString(); }, new Owner("tester"), 3, 35);
 
             Assert.AreEqual(0, BS.Status.Count);
-            Assert.AreEqual(true, BS.scheduler.Empty());
-            
+            Assert.IsTrue(BS.scheduler.Empty());    
+
+            BS.Submit(job);
+            Assert.AreEqual(1, BS.Status.Count);
+            Assert.IsTrue(BS.Status.Contains(job));
+            Assert.IsFalse(BS.scheduler.Empty());
+
+            BS.Cancel(job);
+            Assert.AreEqual(0, BS.Status.Count);
+            Assert.IsFalse(BS.Status.Contains(job));
+            Assert.IsTrue(BS.scheduler.Empty());        
+
+        }
+
+        [TestMethod]
+        public void TestExecuteAll()
+        {
+            BenchmarkSystem BS = new BenchmarkSystem();
+            Job job = new Job((string[] arg) => { return arg.Length.ToString(); }, new Owner("tester"), 3, 35);
+
+            Assert.AreEqual(0, BS.Status.Count);
+            Assert.IsTrue(BS.scheduler.Empty());
+
             BS.Submit(job);
             Assert.AreEqual(1, BS.Status.Count);
             Assert.IsTrue(BS.Status.Contains(job));
             Assert.IsFalse(BS.scheduler.Empty());
             
-            BS.Cancel(job);
+            BS.ExecuteAll();
             Assert.AreEqual(0, BS.Status.Count);
             Assert.IsFalse(BS.Status.Contains(job));
             Assert.IsTrue(BS.scheduler.Empty());
+
         }
 
         [TestMethod]
