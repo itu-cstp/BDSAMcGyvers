@@ -24,11 +24,5 @@ namespace SchedulingBenchmarking
             Assert.AreEqual("3", job1.Process(args));
             Assert.AreEqual("0", job1.Process(new string[]{}));
         }
-
-        [TestMethod]
-        public void TestToString()
-        {
-            Assert.AreEqual("Job added: 01-01-0001 00:00:00 owner: tester",job1.ToString());
-        }
     }
 }
