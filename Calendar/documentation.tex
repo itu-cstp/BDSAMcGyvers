@@ -186,11 +186,70 @@ To facilitate a better interoperative workflow through all levels of the organiz
 \item The system requires an employee/manager to function as a local administrator to handle password resetting, creating user profiles etc.
 \end{itemize}
 
+\section{Operations contracts}
+\subsection{Operation: Create Event(title, timeslot, description, location)}
+
+Cross References: none
+
+Pre-conditions:
+\begin{itemize}
+\item user was logged in
+\end{itemize}
+
+Post Conditions
+\begin{itemize}
+\item event was created
+\item collaborators were notified.
+\end{itemize}
+
+\subsection{Operation: Answer Invitation with Acceptance}
+
+Cross References: none
+
+Pre-conditions:
+\begin{itemize}
+\item user was logged in
+\item event was created
+\item collaborators were notified
+\end{itemize}
+
+Post Conditions
+\begin{itemize}
+\item invitation was accepted
+\end{itemize}
+
+\subsection{Operation: Answer Invitation with Refusal}
+
+Cross References: none
+
+Pre-conditions:
+\begin{itemize}
+\item user was logged in
+\item event was created
+\item collaborators were notified
+\end{itemize}
+
+Post Conditions
+\begin{itemize}
+\item invitation was refused
+\end{itemize}
+
 \section{Packaging}
 There are no packaging concern with this product, as it is transported and sold electronically
 
 \section{Legal}
 Tracking issues need to be looked at from legal perspective
+
+\section{A discussion of software attributes / qualities}
+
+\subsection{Reliability}
+Our SuD should maintain a high reliability (99,7\%) this will largely depend on the deployment server, but our architecture will facilitate this by allowing rolling upgrades without the system going offline
+
+\subsection{Performance}
+The performance requirements for our SuD is not constrained by our architecture. We will suffer a slight penalty by using a layered architecture, but this can be countered by better hardware server side. We consider this to be a justified tradeoff
+
+\subsection{security}
+Security aspects of our SuD will greatly benefit from our layered architecture. This provides good encapsulation. It's worth noting that the deploy server will always be a point of failure, so proper measures should be taken
 
 
 \part{Glossary}
